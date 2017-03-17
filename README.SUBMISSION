@@ -1,0 +1,22 @@
+#Files created: 
+
+1) doswap.sh
+   - This shell script automates the hotswap given an image as its parameter.
+   - First, it creates a new container with the given image, then executes one of the swap scripts
+     under the bin directory within the ng container, and lastly removes the old container.  
+   - Steps to demonstrate hot-swap: 
+       1. ./dorun.sh
+       2. ./doswap.sh <image name>  
+
+2) swap1.sh and swap2.sh
+   - Scripts for hot swapping; very similar files
+
+
+#Files edited:
+
+1) activity.war
+   - Lists 10 most recent pushes  
+   - "Pretty format" added
+
+2) Dockerfile
+   - Deleted "ADD swap3.sh"
