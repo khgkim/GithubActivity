@@ -17,6 +17,7 @@
   <body>
   <div id="core">
     <h2>What Have I Been Up To?</h2>
+    <img id="icon" src="https://s-media-cache-ak0.pinimg.com/originals/dc/ef/3a/dcef3abedf0e0761203aaeb85886a6f3.jpg" style="width:500px;height:500px;">
     <form action="index.jsp" method="GET">
       <div class="form-group">
         <label for="user"><h3>Github username:</h3></label>
@@ -45,6 +46,8 @@
   </div>
 
   <!-- YOUR CODE HERE -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">
+
   <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>

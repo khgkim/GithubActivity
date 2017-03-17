@@ -1,6 +1,16 @@
 #core {
-    width: 100%;
+    width: 93%;
     margin: 50px 50px 0 50px;
+}
+
+h2 {
+    font-family: "Apple Symbols";
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    text-align: center;
+    padding-right: 70px;
+    padding-bottom: 50px;
 }
 
 #user {
@@ -10,3 +20,23 @@
 pre {
     width: 80%;
 }
+
+.type {
+    font-family: "Apple Symbols";
+    font-size: 2em;
+}
+
+.table {
+    table-layout: fixed;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+}
+
+#icon {
+    position: relative;
+    left: 60%;
+}
+

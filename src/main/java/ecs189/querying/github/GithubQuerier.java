@@ -25,8 +25,9 @@ public class GithubQuerier {
         sb.append("<div>");
         int i = 0;
         for (JSONObject event : response) {
-            // Get event type
-            String type = event.getString("type");
+            // Get pushed repo name
+            JSONObject repo = event.getJSONObject("repo");
+            String name = repo.getString("name");
             // Get created_at date, and format it in a more pleasant style
             String creationDate = event.getString("created_at");
             SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
@@ -36,32 +37,83 @@ public class GithubQuerier {
 
             // Add type of event as header
             sb.append("<h3 class=\"type\">");
-            sb.append(type);
+            sb.append((i+1) + ". Pushed to " + name);
             sb.append("</h3>");
             // Add formatted date
             sb.append(" on ");
-            sb.append(formatted);
+            sb.append("<i>" + formatted + "</i>");
             sb.append("<br />");
+
+            // Get SHA-1 and Commit message
+            JSONObject payload = event.getJSONObject("payload");
+            JSONArray commits = payload.getJSONArray("commits");
+
+            // Construct table
+            sb.append("<table class=\"table table-hover\">");
+            sb.append("<thead class=\"thead-inverse\">");
+            sb.append("<tr> <th class=\"text-left\">SHA-1</th> <th class=\"text-left\">Commit Message</th> </tr>");
+            sb.append("</thead><tbody>");
+
+            // Loop for each commit
+            for (int j = 0; j < commits.length(); j++) {
+                JSONObject fields = commits.getJSONObject(j);
+                String hashVal = fields.getString("sha");
+                String messageStr = fields.getString("message");
+
+                sb.append("<tr>");
+                sb.append("<td>" + hashVal + "</td>");
+                sb.append("<td>" + messageStr + "</td>");
+                sb.append("</tr>");
+            }
+            sb.append("</tbody></table>");
+
             // Add collapsible JSON textbox (don't worry about this for the homework; it's just a nice CSS thing I like)
             sb.append("<a data-toggle=\"collapse\" href=\"#event-" + i + "\">JSON</a>");
             sb.append("<div id=event-" + i + " class=\"collapse\" style=\"height: auto;\"> <pre>");
             sb.append(event.toString());
             sb.append("</pre> </div>");
+            i++;
+
+            sb.append("<br />");
+            sb.append("<br />");
+
         }
         sb.append("</div>");
         return sb.toString();
     }
 
     private static List<JSONObject> getEvents(String user) throws IOException {
+        // j limits 10 latest push events only
+        int j = 0;
+        int page = 2;
+
         List<JSONObject> eventList = new ArrayList<JSONObject>();
-        String url = BASE_URL + user + "/events";
+
+        // https://api.github.com/users/khgkim/events?page=1&per_page=100
+        String url = BASE_URL + user + "/events?page=1&per_page=100";
         System.out.println(url);
         JSONObject json = Util.queryAPI(new URL(url));
         System.out.println(json);
         JSONArray events = json.getJSONArray("root");
-        for (int i = 0; i < events.length() && i < 10; i++) {
-            eventList.add(events.getJSONObject(i));
+
+        // Pagination Loop
+        while (events.length() != 0 && j < 10) {
+            for (int i = 0; i < events.length() && j < 10; i++) {
+                JSONObject pushEvents = events.getJSONObject(i);
+                String type = pushEvents.getString("type");
+
+                if (type.equals("PushEvent")) {
+                    eventList.add(events.getJSONObject(i));
+                    j++;
+                }
+            }
+
+            String nextUrl = BASE_URL + user + "/events?page=" + page + "&per_page=100";
+            json = Util.queryAPI(new URL(nextUrl));
+            events = json.getJSONArray("root");
+            page++;
         }
+
         return eventList;
     }
 }
