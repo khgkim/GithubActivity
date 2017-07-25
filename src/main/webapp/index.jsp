@@ -1,10 +1,4 @@
-<%@ page import="ecs189.querying.github.GithubQuerier" %><%--
-  Created by IntelliJ IDEA.
-  User: Vincent
-  Date: 7/3/2017
-  Time: 8:47 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="ecs189.querying.github.GithubQuerier" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -45,7 +39,6 @@
     </div>
   </div>
 
-  <!-- YOUR CODE HERE -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">
 
   <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>

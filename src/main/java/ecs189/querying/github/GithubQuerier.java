@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Vincent on 10/1/2017.
- */
 public class GithubQuerier {
 
     private static final String BASE_URL = "https://api.github.com/users/";

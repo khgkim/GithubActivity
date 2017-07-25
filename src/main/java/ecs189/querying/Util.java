@@ -7,9 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-/**
- * Created by Vincent on 10/1/2017.
- */
 public class Util {
 
     public static JSONObject queryAPI(URL url) throws IOException {
