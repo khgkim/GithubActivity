@@ -1,3 +1,6 @@
+![Alt text](https://github.com/khgkim/GithubActivity/tree/master/images/GithubActivity.png)
+![Alt text](https://github.com/khgkim/GithubActivity/tree/master/images/Results.png)
+
 GithubActivity
 ===
 Displays user’s pull and merged pull-requests through [GitHub API](https://developer.github.com/v3/).
