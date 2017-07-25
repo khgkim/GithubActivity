@@ -1,5 +1,4 @@
 ![Alt text](images/GithubActivity.png?raw=true)
----
 ![Alt text](images/Results.png?raw=true)
 
 GithubActivity
