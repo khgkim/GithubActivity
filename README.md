@@ -1,5 +1,5 @@
-![Alt text](/master/images/GithubActivity.png?raw=true)
-![Alt text](/master/images/Results.png?raw=true)
+![Alt text](images/GithubActivity.png?raw=true)
+![Alt text](images/Results.png?raw=true)
 
 GithubActivity
 ===
