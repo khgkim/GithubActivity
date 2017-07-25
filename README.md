@@ -1,5 +1,5 @@
-![Alt text](https://github.com/khgkim/GithubActivity/tree/master/images/GithubActivity.png)
-![Alt text](https://github.com/khgkim/GithubActivity/tree/master/images/Results.png)
+![Alt text](https://github.com/khgkim/GithubActivity/tree/master/images/GithubActivity.png?raw=true)
+![Alt text](https://github.com/khgkim/GithubActivity/tree/master/images/Results.png?raw=true)
 
 GithubActivity
 ===
