@@ -9,7 +9,7 @@ Server is deployed with Intellij IDE using Apache Tomcat.
 
 Scripts
 ===
-Bash shell scripts that automate server hot-swaps given an Docker image as its parameter
+Bash shell scripts that automate server hot-swaps given an Docker image as its parameter.
 
 **doswap.sh**
 
