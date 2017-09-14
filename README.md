@@ -3,7 +3,7 @@
 
 GithubActivity
 ===
-Displays user’s pull and merged pull-requests through [GitHub API](https://developer.github.com/v3/).
+Displays up to 10 of user’s pull and merged pull-requests through [GitHub API](https://developer.github.com/v3/).
 
 Server is deployed with Intellij IDE using Apache Tomcat.
 
